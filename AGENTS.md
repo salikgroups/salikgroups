@@ -1,3 +1,13 @@
+# Agent guide — Salik Groups web
+
+See [agents.md](./agents.md) for full agent instructions.
+
+## Quick links
+
+- Design system: [design.md](./design.md)
+- Claude notes: [claude.md](./claude.md)
+- Global styles: [src/styles/globals.css](./src/styles/globals.css)
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 

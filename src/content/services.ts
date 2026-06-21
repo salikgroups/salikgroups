@@ -1,0 +1,469 @@
+import type { Service } from "@/types/content";
+
+export const services: Service[] = [
+  {
+    id: "solar",
+    slug: "solar-energy",
+    shortLabel: "Solar Energy",
+    title: "Solar Energy Solutions",
+    description:
+      "Commercial, hybrid and high-capacity solar systems engineered for energy yield, reliability and long-term cost efficiency.",
+    image:
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=72&auto=format&fit=crop",
+    icon: "solar",
+    metaDescription:
+      "Commercial and high-capacity solar energy systems in Pakistan — site assessment, design, supply, installation, commissioning and support by Salik Groups & Co.",
+    tagline:
+      "High-capacity solar engineered for yield, reliability and long-term savings.",
+    overview: [
+      "Salik Groups & Co delivers comprehensive solar energy systems for government institutions, industrial facilities, commercial complexes and large infrastructure environments.",
+      "Every project begins with feasibility studies, site assessment and load analysis before panels, inverters and balance-of-system components are selected for your operational profile.",
+      "From 110–125 KW commercial deployments to hybrid and grid-tied configurations, we manage supply, installation, testing, commissioning and after-sales support through one accountable team.",
+    ],
+    capabilities: [
+      "Utility-scale, commercial and hybrid solar installations",
+      "Grid-tied, off-grid and hybrid system configurations",
+      "Feasibility studies, site assessment, load analysis and system design",
+      "Supply and installation of panels, inverters, wiring and BOS components",
+      "Energy storage integration where required",
+      "Intelligent monitoring and energy management platforms",
+      "Net-metering-ready integration and performance optimisation",
+    ],
+    deliverables: [
+      "Detailed site survey and load analysis report",
+      "System design, layout and project timeline",
+      "Equipment supply from established solar brands",
+      "Professional installation and electrical integration",
+      "Testing, commissioning and performance verification",
+      "Operator documentation, training and after-sales support",
+    ],
+    industries: [
+      "Government & public institutions",
+      "Industrial plants and warehouses",
+      "Commercial complexes and offices",
+      "Hospitality and healthcare facilities",
+      "Large infrastructure environments",
+    ],
+  },
+  {
+    id: "cctv",
+    slug: "cctv-surveillance",
+    shortLabel: "CCTV",
+    title: "CCTV & Surveillance",
+    description:
+      "Scalable surveillance with site surveys, camera installation, structured cabling, networking and centralised monitoring.",
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1200&q=72&auto=format&fit=crop",
+    icon: "cctv",
+    metaDescription:
+      "CCTV and Safe City surveillance solutions in Pakistan — site surveys, camera installation, cabling, networking and central monitoring by Salik Groups & Co.",
+    tagline:
+      "Scalable surveillance from single sites to Safe City deployments.",
+    overview: [
+      "Salik Groups & Co designs and deploys scalable surveillance systems for public safety, commercial operations, industrial facilities and sensitive sites.",
+      "Our teams have commissioned 400+ CCTV cameras across Safe City projects in Sialkot and Sheikhupura — covering site surveys, installation, structured cabling, network setup and centralised monitoring integration.",
+      "Every system is tested for image quality, stable operation and reliable connectivity before handover, with documentation and operator training included.",
+    ],
+    capabilities: [
+      "Detailed site surveys and security coverage assessments",
+      "IP and analogue CCTV camera supply and installation",
+      "Structured cabling and network connectivity for surveillance",
+      "NVR/DVR configuration and storage planning",
+      "Centralised monitoring and control-room integration",
+      "Safe City and multi-site deployment experience",
+      "Image quality, stability and connectivity testing",
+    ],
+    deliverables: [
+      "Camera placement plan and coverage assessment",
+      "Supply, mounting and commissioning of cameras",
+      "Structured cabling and network integration",
+      "Monitoring station and control-room setup",
+      "System configuration and user access setup",
+      "Documentation, training and post-installation support",
+    ],
+    industries: [
+      "Safe City and government surveillance",
+      "Courts and public-sector buildings",
+      "Industrial and manufacturing sites",
+      "Commercial and retail environments",
+      "Sensitive and high-security facilities",
+    ],
+  },
+  {
+    id: "telephone",
+    slug: "telephone-exchange",
+    shortLabel: "Telephone",
+    title: "Telephone Exchange",
+    description:
+      "IP-PBX and exchange systems planned, installed and configured for clear, reliable multi-line voice communication.",
+    image:
+      "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=1200&q=72&auto=format&fit=crop",
+    icon: "telephone",
+    metaDescription:
+      "IP-PBX and telephone exchange installation in Pakistan — multi-line voice systems planned, configured and supported by Salik Groups & Co.",
+    tagline:
+      "Clear, reliable voice communication across departments and sites.",
+    overview: [
+      "Salik Groups & Co plans, supplies and configures telephone exchange and IP-PBX systems for organisations that need dependable multi-line voice communication.",
+      "We assess call volumes, extension requirements and existing infrastructure before recommending the right exchange platform, handsets and trunk connectivity.",
+      "Installation includes structured cabling coordination, system programming, testing and user handover — supported by our technical team after commissioning.",
+    ],
+    capabilities: [
+      "IP-PBX and traditional exchange system planning",
+      "Extension mapping and call-routing configuration",
+      "Handset, gateway and trunk integration",
+      "Structured cabling coordination for voice networks",
+      "Voicemail, IVR and departmental routing setup",
+      "System testing, documentation and user training",
+      "Maintenance and after-sales technical support",
+    ],
+    deliverables: [
+      "Technical assessment and exchange sizing report",
+      "Equipment supply and rack/installation layout",
+      "Programming, extension setup and trunk configuration",
+      "Integration with existing network infrastructure",
+      "Call quality and failover testing",
+      "Operator training and support documentation",
+    ],
+    industries: [
+      "Corporate offices and call centres",
+      "Government departments",
+      "Hotels and hospitality groups",
+      "Industrial and commercial campuses",
+      "Multi-branch business operations",
+    ],
+  },
+  {
+    id: "fence",
+    slug: "electric-fencing",
+    shortLabel: "Electric Fence",
+    title: "Electric Fencing",
+    description:
+      "Safety-compliant perimeter security that deters intrusion and strengthens protection at sensitive sites.",
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=72&auto=format&fit=crop",
+    icon: "fence",
+    metaDescription:
+      "Electric fence and perimeter security solutions in Pakistan — assessment, supply, installation, testing and commissioning by Salik Groups & Co.",
+    tagline:
+      "Safety-compliant perimeter protection for sensitive and high-risk sites.",
+    overview: [
+      "Salik Groups & Co delivers perimeter security solutions designed to strengthen site protection and help prevent unauthorised access.",
+      "Our delivery approach includes site assessment, system planning, supply, installation, testing and commissioning using quality materials and safety-conscious installation practices.",
+      "We have successfully deployed electric fencing for District Lahore and other government and industrial clients — with full testing, performance checks and structured handover.",
+    ],
+    capabilities: [
+      "Perimeter security site assessment and planning",
+      "Electric fencing supply and professional installation",
+      "Energiser selection and alarm integration",
+      "Safety-compliant system design and earthing",
+      "Integration with CCTV and access control where required",
+      "Performance testing and final commissioning",
+      "Documentation, handover and support",
+    ],
+    deliverables: [
+      "Perimeter survey and fence layout plan",
+      "Supply of energisers, wires, insulators and accessories",
+      "Installation aligned to safety standards",
+      "Alarm and monitoring integration",
+      "Testing, performance verification and commissioning",
+      "Handover documentation and maintenance guidance",
+    ],
+    industries: [
+      "Government and public-sector facilities",
+      "Industrial plants and warehouses",
+      "Courts and institutional campuses",
+      "Commercial and residential compounds",
+      "High-security and sensitive locations",
+    ],
+  },
+  {
+    id: "generators",
+    slug: "generators",
+    shortLabel: "Generators",
+    title: "Generators",
+    description:
+      "Standby power supply, installation and synchronisation for uninterrupted operation during outages.",
+    image:
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=72&auto=format&fit=crop",
+    icon: "generator",
+    metaDescription:
+      "Generator supply, installation and synchronisation in Pakistan — standby power for commercial and industrial sites by Salik Groups & Co.",
+    tagline:
+      "Standby power that keeps critical operations running during outages.",
+    overview: [
+      "Salik Groups & Co supplies, installs and commissions generator systems for sites that cannot afford power interruptions — from commercial buildings to industrial facilities.",
+      "We assess load requirements, fuel type, placement and changeover strategy before recommending the right generator capacity and automatic transfer configuration.",
+      "Our scope covers electrical integration, synchronisation where required, testing under load and operator training for reliable day-to-day operation.",
+    ],
+    capabilities: [
+      "Load assessment and generator sizing",
+      "Diesel and standby generator supply",
+      "Foundation, exhaust and fuel-system coordination",
+      "Automatic transfer switch (ATS) integration",
+      "Synchronisation with mains and solar where applicable",
+      "Load testing, commissioning and performance verification",
+      "Scheduled maintenance and repair support",
+    ],
+    deliverables: [
+      "Power assessment and generator specification",
+      "Supply, delivery and installation",
+      "Electrical integration and ATS wiring",
+      "Startup, load testing and commissioning",
+      "Operator training and maintenance schedule",
+      "After-sales service and repair coordination",
+    ],
+    industries: [
+      "Industrial manufacturing facilities",
+      "Commercial towers and offices",
+      "Hospitality and healthcare",
+      "Telecom and data environments",
+      "Government and institutional buildings",
+    ],
+  },
+  {
+    id: "intercom",
+    slug: "video-intercom",
+    shortLabel: "Video Intercom",
+    title: "Video Intercom",
+    description:
+      "Audio-video door entry and access systems for secure, convenient visitor management.",
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=1200&q=72&auto=format&fit=crop",
+    icon: "intercom",
+    metaDescription:
+      "Video intercom and door entry systems in Pakistan — secure visitor management, installation and integration by Salik Groups & Co.",
+    tagline:
+      "Secure audio-video entry for residential, commercial and institutional sites.",
+    overview: [
+      "Salik Groups & Co installs video intercom and door-entry systems that give staff clear visibility and control over visitor access.",
+      "Solutions range from single-entry panels to multi-unit residential and commercial deployments with indoor monitors, access release and integration with electric locks or gate automation.",
+      "We handle cabling, programming, testing and user training so your team can manage access confidently from day one.",
+    ],
+    capabilities: [
+      "Video door phone and intercom system design",
+      "Outdoor panels, indoor monitors and handsets",
+      "Integration with electric locks and gate motors",
+      "Multi-unit and multi-building configurations",
+      "Structured cabling and power coordination",
+      "System programming and access rules setup",
+      "Testing, handover and support",
+    ],
+    deliverables: [
+      "Site assessment and entry-point planning",
+      "Equipment supply and professional installation",
+      "Cabling, power and network integration",
+      "Programming, testing and access verification",
+      "User training and quick-reference guides",
+      "Maintenance and upgrade support",
+    ],
+    industries: [
+      "Residential compounds and gated communities",
+      "Commercial offices and business parks",
+      "Hotels and serviced apartments",
+      "Educational and institutional campuses",
+      "Industrial and warehouse facilities",
+    ],
+  },
+  {
+    id: "attendance",
+    slug: "attendance-machines",
+    shortLabel: "Attendance",
+    title: "Attendance Machines",
+    description:
+      "Biometric and RFID time-and-attendance systems integrated with access control and reporting.",
+    image:
+      "https://images.unsplash.com/photo-1633265486064-086b219458ec?w=1200&q=72&auto=format&fit=crop",
+    icon: "attendance",
+    metaDescription:
+      "Biometric and RFID attendance systems in Pakistan — time tracking, access control and reporting by Salik Groups & Co.",
+    tagline:
+      "Accurate time tracking with biometric and RFID access integration.",
+    overview: [
+      "Salik Groups & Co deploys biometric and RFID attendance systems that help organisations track workforce presence accurately and integrate access control where required.",
+      "We assess entry points, user volumes and reporting needs before recommending fingerprint, face recognition or card-based terminals with centralised software.",
+      "Installation includes device mounting, network configuration, user enrollment, reporting setup and training for HR and administrative teams.",
+    ],
+    capabilities: [
+      "Biometric fingerprint and face recognition terminals",
+      "RFID and card-based attendance devices",
+      "Centralised attendance software and reporting",
+      "Integration with access control and door locks",
+      "Multi-location and multi-shift configuration",
+      "User enrollment and role-based access setup",
+      "Ongoing maintenance and device support",
+    ],
+    deliverables: [
+      "Requirements assessment and device placement plan",
+      "Terminal supply, mounting and cabling",
+      "Software installation and network configuration",
+      "User enrollment and reporting template setup",
+      "HR/administrator training",
+      "Support for updates, repairs and expansion",
+    ],
+    industries: [
+      "Corporate offices and factories",
+      "Government departments",
+      "Educational institutions",
+      "Healthcare and hospitality",
+      "Retail and multi-branch operations",
+    ],
+  },
+  {
+    id: "networking",
+    slug: "enterprise-networking",
+    shortLabel: "Networking",
+    title: "Enterprise Networking",
+    description:
+      "Structured networks and secure point-to-point wireless links — planned, installed, configured and tested.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=72&auto=format&fit=crop",
+    icon: "network",
+    metaDescription:
+      "Enterprise networking and wireless link installation in Pakistan — structured cabling, secure links and commissioning by Salik Groups & Co.",
+    tagline:
+      "Reliable structured networks and long-distance wireless links.",
+    overview: [
+      "Salik Groups & Co supports reliable network infrastructure through structured networking solutions and secure wireless links for point-to-point and point-to-multipoint environments.",
+      "We plan each link, install required equipment, configure and align it, then perform performance verification before handover — including Ubiquiti wireless deployments across Lahore.",
+      "Every engagement includes detailed layouts, timelines, system documentation and certified installation teams supervised by experienced project managers.",
+    ],
+    capabilities: [
+      "Network site surveys and technical assessments",
+      "Structured cabling and rack infrastructure",
+      "Switch, router and firewall configuration",
+      "Point-to-point and point-to-multipoint wireless links",
+      "Signal optimisation and bandwidth stability testing",
+      "Secure VLAN segmentation and access policies",
+      "Documentation, training and post-handover support",
+    ],
+    deliverables: [
+      "Network survey and topology design",
+      "Structured cabling and equipment installation",
+      "Wireless link planning, alignment and optimisation",
+      "Configuration, security setup and testing",
+      "Performance verification and commissioning report",
+      "Operator training and maintenance documentation",
+    ],
+    industries: [
+      "Government and public-sector networks",
+      "Industrial campuses and remote sites",
+      "Commercial offices and business parks",
+      "Telecom and media operations",
+      "Multi-building institutional environments",
+    ],
+  },
+  {
+    id: "it",
+    slug: "it-solutions",
+    shortLabel: "I.T. Solutions",
+    title: "I.T. Solutions",
+    description:
+      "Servers, workstations, software coordination and enterprise hardware supply, setup and integration.",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=72&auto=format&fit=crop",
+    icon: "it",
+    metaDescription:
+      "Enterprise I.T. solutions in Pakistan — servers, workstations, hardware supply, setup and integration by Salik Groups & Co.",
+    tagline:
+      "Enterprise hardware, servers and integrated I.T. infrastructure.",
+    overview: [
+      "Salik Groups & Co provides enterprise I.T. solutions including servers, workstations, networking hardware and coordinated software setup for business and institutional clients.",
+      "We work with established brands such as HP and Dell to supply equipment matched to your workload, security and scalability requirements.",
+      "Our team handles rack installation, OS setup, network integration, testing and handover — giving you a single point of contact alongside our security and networking divisions.",
+    ],
+    capabilities: [
+      "Server and workstation supply and setup",
+      "Rack, UPS and power infrastructure coordination",
+      "Operating system installation and configuration",
+      "Network and storage integration",
+      "Peripheral and endpoint deployment",
+      "Software coordination and licensing support",
+      "Maintenance, upgrades and repair coordination",
+    ],
+    deliverables: [
+      "I.T. requirements assessment and bill of materials",
+      "Hardware supply and physical installation",
+      "OS setup, patching and baseline configuration",
+      "Network, storage and backup integration",
+      "Testing, acceptance and handover documentation",
+      "Ongoing support through our repair centre",
+    ],
+    industries: [
+      "Corporate and commercial offices",
+      "Government departments",
+      "Industrial and engineering firms",
+      "Educational institutions",
+      "Healthcare and hospitality groups",
+    ],
+  },
+  {
+    id: "repair",
+    slug: "repairing-centre",
+    shortLabel: "Repairs",
+    title: "Repairing Centre",
+    description:
+      "Diagnostics, maintenance and after-sales repair for cameras, networks, power and electronic systems.",
+    image:
+      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1200&q=72&auto=format&fit=crop",
+    icon: "repair",
+    metaDescription:
+      "Electronics repair centre in Pakistan — diagnostics and after-sales support for CCTV, networking, power and security systems by Salik Groups & Co.",
+    tagline:
+      "Diagnostics, maintenance and after-sales repair under one roof.",
+    overview: [
+      "Salik Groups & Co operates a repairing centre that supports the systems we install — and third-party equipment — with diagnostics, maintenance and after-sales repair.",
+      "Our technicians handle cameras, network devices, power equipment and electronic security hardware, helping clients extend asset life and minimise downtime.",
+      "Because we also design and install these systems, our repair team understands field conditions, integration requirements and the urgency of getting sites operational again.",
+    ],
+    capabilities: [
+      "CCTV camera and NVR diagnostics and repair",
+      "Network switch, router and wireless device servicing",
+      "Power supply, UPS and generator component repair",
+      "Biometric and access-control device maintenance",
+      "Preventive maintenance and health checks",
+      "On-site and workshop-based repair options",
+      "Spare parts coordination and replacement",
+    ],
+    deliverables: [
+      "Fault diagnosis and repair assessment report",
+      "Component-level or unit replacement",
+      "Performance verification after repair",
+      "Preventive maintenance scheduling",
+      "Upgrade and replacement recommendations",
+      "Warranty and service documentation",
+    ],
+    industries: [
+      "Existing Salik Groups & Co installation clients",
+      "Commercial and industrial facilities",
+      "Government and institutional sites",
+      "Security and surveillance operators",
+      "Businesses with mixed-vendor equipment",
+    ],
+  },
+];
+
+export const trustMarqueeItems = [
+  "SOLAR ENERGY",
+  "CCTV & SURVEILLANCE",
+  "ELECTRIC FENCING",
+  "VIDEO WALLS",
+  "ENTERPRISE NETWORKING",
+  "GENERATORS",
+  "UVSS",
+  "I.T. SOLUTIONS",
+] as const;
+
+export const serviceFormOptions = [
+  "Solar Energy",
+  "CCTV & Surveillance",
+  "Telephone Exchange",
+  "Electric Fencing",
+  "Generators",
+  "Video Intercom",
+  "Attendance Machine",
+  "Networking",
+  "I.T. Solutions",
+  "Repairing Centre",
+  "Other",
+] as const;

@@ -1,0 +1,15 @@
+# Local agent / design docs — not needed in production bundle
+AGENTS.md
+CLAUDE.md
+design.md
+
+# Dev caches (should not be committed, but exclude if present)
+.next
+node_modules
+.turbo
+.swc
+*.tsbuildinfo
+
+# Env files
+.env
+.env.*

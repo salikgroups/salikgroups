@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site";
 
 export const seoConfig = {
-  siteUrl: "https://salikgroups.com",
+  siteUrl: "https://www.salikgroups.com",
   siteName: siteConfig.name,
   alternateNames: ["Salik Groups", "Salik Group", "Salik Enterprises"],
   locale: "en_PK",

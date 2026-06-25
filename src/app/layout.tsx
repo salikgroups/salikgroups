@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/seo/json-ld";
 import { homepageSeo, seoConfig } from "@/config/seo";
+import { siteConfig } from "@/config/site";
 import {
   getLocalBusinessJsonLd,
   getOrganizationJsonLd,
@@ -55,6 +56,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: siteConfig.emblemSrc,
+    apple: siteConfig.emblemSrc,
+  },
 };
 
 export default function RootLayout({
@@ -76,7 +81,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full">
+      <body className="min-h-full" suppressHydrationWarning>
         <JsonLd
           data={[getOrganizationJsonLd(), getLocalBusinessJsonLd()]}
         />

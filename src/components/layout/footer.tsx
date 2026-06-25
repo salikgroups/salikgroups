@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-sg-border-soft sg-section-x pb-8 pt-10 sm:pb-10 sm:pt-[60px]">
       <div className="mx-auto grid max-w-[var(--spacing-container)] grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
         <div className="col-span-2 lg:col-span-1">
-          <Logo size="sm" className="mb-4 sm:mb-[18px]" />
+          <Logo variant="full" size="sm" className="mb-4 sm:mb-[18px]" />
           <p className="max-w-xs text-sm leading-[1.65] text-sg-text-dim">
             {siteConfig.tagline}
           </p>

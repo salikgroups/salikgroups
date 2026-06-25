@@ -5,7 +5,7 @@ export const seoConfig = {
   siteName: siteConfig.name,
   alternateNames: ["Salik Groups", "Salik Group", "Salik Enterprises"],
   locale: "en_PK",
-  defaultOgImage: "/saliglogo (1).svg",
+  defaultOgImage: "/sallikLogo.svg",
   twitterHandle: "@SalikGroups",
   geo: {
     region: "PK-PB",

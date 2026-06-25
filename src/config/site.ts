@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Salik Groups & Co",
-  logoSrc: "/saliglogo (1).svg",
+  logoSrc: "/sallikLogo.svg",
+  emblemSrc: "/emblem (1).svg",
   brand: {
     primary: "SALIK",
     accent: "GROUPS & CO",

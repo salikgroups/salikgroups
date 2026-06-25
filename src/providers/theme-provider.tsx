@@ -32,7 +32,11 @@ function readStoredTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(readStoredTheme);
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    setTheme(readStoredTheme());
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

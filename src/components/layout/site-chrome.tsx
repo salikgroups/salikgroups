@@ -6,10 +6,14 @@ import { primaryNav } from "@/config/navigation";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
+import { HeaderMarqueeBar } from "./header-marquee-bar";
 import { BackToTop, ScrollProgress } from "./scroll-chrome";
 import { GoogleReviewsWidget } from "./google-reviews-widget";
-import { ServiceCategoriesBar } from "./service-categories-bar";
+import { ServicesNavDropdown } from "./services-nav-dropdown";
 import { WhatsAppWidget } from "./whatsapp-widget";
+import { services } from "@/content/services";
+import { getServicePath } from "@/lib/services";
+import { usePathname } from "next/navigation";
 
 type NavbarProps = {
   scrolled: boolean;
@@ -18,6 +22,9 @@ type NavbarProps = {
 };
 
 export function Navbar({ scrolled, activeSection, onOpenMenu }: NavbarProps) {
+  const pathname = usePathname();
+  const isOnServicePage = pathname.startsWith("/services/");
+
   return (
     <nav
       className={cn(
@@ -26,7 +33,7 @@ export function Navbar({ scrolled, activeSection, onOpenMenu }: NavbarProps) {
       )}
     >
       <Link href="/" className={cn(scrolled ? "text-sg-text-hi" : "text-[#f3f6fc]")}>
-        <Logo priority />
+        <Logo variant="full" priority />
       </Link>
 
       <div
@@ -36,7 +43,20 @@ export function Navbar({ scrolled, activeSection, onOpenMenu }: NavbarProps) {
         )}
       >
         {primaryNav.map((item) => {
-          const isActive = activeSection === item.sectionId;
+          const isServices = item.sectionId === "services";
+          const isActive =
+            activeSection === item.sectionId || (isServices && isOnServicePage);
+
+          if (isServices) {
+            return (
+              <ServicesNavDropdown
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                isActive={isActive}
+              />
+            );
+          }
 
           return (
             <Link
@@ -81,12 +101,67 @@ export function MobileMenu({
   onClose: () => void;
   activeSection: string | null;
 }) {
+  const pathname = usePathname();
+  const [servicesOpen, setServicesOpen] = useState(false);
+
   if (!open) return null;
 
+  const isOnServicePage = pathname.startsWith("/services/");
+  const isServicesActive = activeSection === "services" || isOnServicePage;
+
   return (
-    <div className="fixed inset-0 z-[99] flex flex-col items-center justify-center gap-2 bg-[rgba(8,16,40,0.97)] text-[#f3f6fc] backdrop-blur-sm">
+    <div className="fixed inset-0 z-[99] flex flex-col items-center justify-center gap-2 overflow-y-auto bg-[rgba(8,16,40,0.97)] px-6 py-10 text-[#f3f6fc] backdrop-blur-sm">
       {primaryNav.map((item) => {
-        const isActive = activeSection === item.sectionId;
+        const isServices = item.sectionId === "services";
+        const isActive =
+          activeSection === item.sectionId || (isServices && isOnServicePage);
+
+        if (isServices) {
+          return (
+            <div key={item.href} className="flex w-full max-w-sm flex-col items-center">
+              <button
+                type="button"
+                onClick={() => setServicesOpen((current) => !current)}
+                className={cn(
+                  "font-display sg-touch-target flex items-center gap-2 px-3 py-3 text-[22px] font-bold transition-colors sm:text-[26px]",
+                  isServicesActive ? "text-sg-accent" : undefined,
+                )}
+                aria-expanded={servicesOpen}
+              >
+                {item.label}
+                <span className="text-sm" aria-hidden>
+                  {servicesOpen ? "▴" : "▾"}
+                </span>
+              </button>
+              {servicesOpen ? (
+                <div className="mb-2 flex w-full flex-col gap-1 rounded-sg-md border border-sg-border bg-sg-panel p-2">
+                  {services.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={getServicePath(service.slug)}
+                      onClick={onClose}
+                      className={cn(
+                        "rounded-sg-sm px-3 py-2.5 text-left text-sm font-semibold transition-colors hover:bg-sg-panel-2 hover:text-sg-accent",
+                        pathname === getServicePath(service.slug)
+                          ? "text-sg-accent"
+                          : "text-sg-text-soft",
+                      )}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                  <Link
+                    href={item.href}
+                    onClick={onClose}
+                    className="mt-1 border-t border-sg-border px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-sg-text-faint transition-colors hover:text-sg-accent"
+                  >
+                    View all services
+                  </Link>
+                </div>
+              ) : null}
+            </div>
+          );
+        }
 
         return (
           <Link
@@ -138,7 +213,7 @@ export function SiteChrome({
           activeSection={activeSection}
           onOpenMenu={() => setMenuOpen(true)}
         />
-        <ServiceCategoriesBar />
+        <HeaderMarqueeBar />
       </header>
       <MobileMenu
         open={menuOpen}

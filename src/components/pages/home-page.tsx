@@ -13,7 +13,6 @@ import { PlatformRatingsSection } from "@/components/sections/platform-ratings-s
 import { ProcessSection } from "@/components/sections/process-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { ServicesSection } from "@/components/sections/services-section";
-import { TrustMarqueeSection } from "@/components/sections/trust-marquee-section";
 import { TrustStatsSection } from "@/components/sections/trust-stats-section";
 import { WhyUsSection } from "@/components/sections/why-us-section";
 
@@ -22,7 +21,6 @@ export function HomePage() {
     <SiteShell>
       <main>
         <HeroSection />
-        <TrustMarqueeSection />
         <PlatformRatingsSection />
         <AboutSection />
         <TrustStatsSection />

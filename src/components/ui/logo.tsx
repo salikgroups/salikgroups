@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 import Image from "next/image";
 
 type LogoProps = {
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
   variant?: "emblem" | "full";
   className?: string;
   priority?: boolean;
@@ -32,9 +32,11 @@ export function Logo({
             ? size === "sm"
               ? "max-h-[48px] sm:max-h-[56px]"
               : "max-h-[44px] sm:max-h-[52px] md:max-h-[60px]"
-            : size === "sm"
-              ? "max-h-[56px] sm:max-h-[72px]"
-              : "max-h-[56px] sm:max-h-[72px] md:max-h-[88px]",
+            : size === "lg"
+              ? "max-h-[64px] sm:max-h-[80px] md:max-h-[96px]"
+              : size === "sm"
+                ? "max-h-[44px] sm:max-h-[56px]"
+                : "max-h-[38px] w-auto sm:max-h-[52px] md:max-h-[64px] lg:max-h-[88px]",
         )}
       />
     </span>

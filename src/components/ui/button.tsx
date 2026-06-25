@@ -47,11 +47,22 @@ export function Button({
   );
 }
 
-export function NavCta({ href, children }: { href: string; children: ReactNode }) {
+export function NavCta({
+  href,
+  children,
+  className,
+}: {
+  href: string;
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-2 rounded-sg-pill bg-sg-accent px-5 py-[11px] text-sm font-bold text-sg-hero shadow-[0_8px_24px_rgba(244,159,28,0.28)] transition-transform hover:-translate-y-0.5"
+      className={cn(
+        "inline-flex items-center gap-2 rounded-sg-pill bg-sg-accent px-5 py-[11px] text-sm font-bold text-sg-hero shadow-[0_8px_24px_rgba(244,159,28,0.28)] transition-transform hover:-translate-y-0.5",
+        className,
+      )}
     >
       {children}
     </Link>

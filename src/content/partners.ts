@@ -2,19 +2,43 @@ import type { PartnerGroup } from "@/types/content";
 
 export const partnerGroups: PartnerGroup[] = [
   {
-    category: "Surveillance & Security",
-    brands: ["HIKVISION", "Dahua", "Uniview", "Panasonic", "ZKTeco"],
+    category: "Inverters",
+    brands: [
+      "Sunflx",
+      "Inverex",
+      "Growatt",
+      "Solis",
+      "SolarMax",
+      "Huawei",
+      "Sungrow",
+      "GoodWe",
+      "Knox",
+      "Itel",
+    ],
   },
   {
-    category: "Networking & Connectivity",
-    brands: ["Ruijie", "Cisco", "TP-Link", "D-Link", "Grandstream", "Corning"],
+    category: "Solar Plates",
+    brands: [
+      "LONGi Solar",
+      "Jinko Solar",
+      "Trina Solar",
+      "Canadian Solar",
+      "JA Solar",
+      "Astronergy Solar",
+    ],
   },
   {
-    category: "Power & Enterprise",
-    brands: ["Schneider Electric", "HP", "Dell"],
-  },
-  {
-    category: "Solar Energy",
-    brands: ["Inverex", "SunFlux", "Solis", "Jinko Solar", "Canadian Solar"],
+    category: "Lithium Battery",
+    brands: [
+      "GoodWe",
+      "Pylontech",
+      "Dyness",
+      "Sunflx",
+      "Inverex",
+      "German'x",
+      "Livoltek",
+      "Itel",
+      "Soluna",
+    ],
   },
 ];

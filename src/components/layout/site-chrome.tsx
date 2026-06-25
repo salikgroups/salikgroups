@@ -7,50 +7,56 @@ import { cn } from "@/lib/cn";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { HeaderMarqueeBar } from "./header-marquee-bar";
+import { MobileMenu } from "./mobile-menu";
 import { BackToTop, ScrollProgress } from "./scroll-chrome";
 import { GoogleReviewsWidget } from "./google-reviews-widget";
 import { ServicesNavDropdown } from "./services-nav-dropdown";
 import { WhatsAppWidget } from "./whatsapp-widget";
-import { services } from "@/content/services";
-import { getServicePath } from "@/lib/services";
 import { usePathname } from "next/navigation";
 
 type NavbarProps = {
   scrolled: boolean;
   activeSection: string | null;
-  onOpenMenu: () => void;
+  menuOpen: boolean;
+  onToggleMenu: () => void;
 };
 
-export function Navbar({ scrolled, activeSection, onOpenMenu }: NavbarProps) {
+export function Navbar({ scrolled, activeSection, menuOpen, onToggleMenu }: NavbarProps) {
   const pathname = usePathname();
   const isOnServicePage = pathname.startsWith("/services/");
 
   return (
     <nav
       className={cn(
-        "flex items-center justify-between border-b border-sg-border px-[var(--spacing-section-x)] transition-[background,padding,backdrop-filter] duration-300",
-        scrolled ? "bg-[var(--sg-nav-bg)] py-2.5 backdrop-blur-[14px] sm:py-3" : "bg-sg-hero/40 py-3 sm:py-[18px]",
+        "relative z-[2] flex items-center gap-3 border-b border-sg-border px-4 transition-[background,padding,backdrop-filter] duration-300 sm:gap-4 sm:px-[var(--spacing-section-x)]",
+        scrolled
+          ? "bg-[var(--sg-nav-bg)] py-2 backdrop-blur-[14px] sm:py-2.5 md:py-3"
+          : "bg-sg-hero/40 py-2.5 sm:py-3 md:py-[18px]",
       )}
     >
-      <Link href="/" className={cn(scrolled ? "text-sg-text-hi" : "text-[#f3f6fc]")}>
+      <Link
+        href="/"
+        className={cn("min-w-0 shrink", scrolled ? "text-sg-text-hi" : "text-[#f3f6fc]")}
+      >
         <Logo variant="full" priority />
       </Link>
 
       <div
         className={cn(
-          "hidden items-center gap-5 text-sm font-semibold md:flex lg:gap-[34px]",
+          "relative z-[2] hidden min-w-0 flex-1 items-center justify-end gap-3 overflow-visible text-[13px] font-semibold lg:flex xl:gap-6 xl:text-sm",
           scrolled ? "text-sg-text-soft" : "text-[#e8edf6]",
         )}
       >
         {primaryNav.map((item) => {
-          const isServices = item.sectionId === "services";
+          const isServices = item.label === "Services";
           const isActive =
-            activeSection === item.sectionId || (isServices && isOnServicePage);
+            activeSection === item.sectionId ||
+            (isServices && isOnServicePage);
 
           if (isServices) {
             return (
               <ServicesNavDropdown
-                key={item.href}
+                key={item.label}
                 href={item.href}
                 label={item.label}
                 isActive={isActive}
@@ -60,10 +66,10 @@ export function Navbar({ scrolled, activeSection, onOpenMenu }: NavbarProps) {
 
           return (
             <Link
-              key={item.href}
+              key={item.label}
               href={item.href}
               className={cn(
-                "relative transition-colors hover:text-sg-accent",
+                "relative whitespace-nowrap transition-colors hover:text-sg-accent",
                 isActive ? "text-sg-accent" : undefined,
               )}
               aria-current={isActive ? "page" : undefined}
@@ -75,117 +81,43 @@ export function Navbar({ scrolled, activeSection, onOpenMenu }: NavbarProps) {
             </Link>
           );
         })}
-        <NavCta href="/#contact">Request Survey</NavCta>
+        <NavCta href="/#contact" className="shrink-0 px-4 py-2 text-[13px] xl:px-5 xl:py-[11px] xl:text-sm">
+          Request Survey
+        </NavCta>
       </div>
 
       <button
         type="button"
-        aria-label="Open menu"
-        onClick={onOpenMenu}
-        className="sg-touch-target grid h-11 w-11 place-items-center gap-1 rounded-xl border border-sg-border bg-sg-panel text-sg-text-hi md:hidden"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        onClick={onToggleMenu}
+        className={cn(
+          "relative ml-auto grid h-10 w-10 shrink-0 place-items-center rounded-sg-md border transition-colors lg:hidden",
+          scrolled
+            ? "border-sg-border bg-sg-panel text-sg-text-hi"
+            : "border-white/25 bg-white/10 text-white",
+        )}
       >
-        <span className="block h-0.5 w-[18px] rounded-sm bg-current" />
-        <span className="block h-0.5 w-[18px] rounded-sm bg-current" />
-        <span className="block h-0.5 w-[18px] rounded-sm bg-current" />
+        <span
+          className={cn(
+            "absolute block h-0.5 w-[18px] rounded-full bg-current transition-all duration-200",
+            menuOpen ? "rotate-45" : "-translate-y-[5px]",
+          )}
+        />
+        <span
+          className={cn(
+            "absolute block h-0.5 w-[18px] rounded-full bg-current transition-all duration-200",
+            menuOpen ? "scale-x-0 opacity-0" : undefined,
+          )}
+        />
+        <span
+          className={cn(
+            "absolute block h-0.5 w-[18px] rounded-full bg-current transition-all duration-200",
+            menuOpen ? "-rotate-45" : "translate-y-[5px]",
+          )}
+        />
       </button>
     </nav>
-  );
-}
-
-export function MobileMenu({
-  open,
-  onClose,
-  activeSection,
-}: {
-  open: boolean;
-  onClose: () => void;
-  activeSection: string | null;
-}) {
-  const pathname = usePathname();
-  const [servicesOpen, setServicesOpen] = useState(false);
-
-  if (!open) return null;
-
-  const isOnServicePage = pathname.startsWith("/services/");
-  const isServicesActive = activeSection === "services" || isOnServicePage;
-
-  return (
-    <div className="fixed inset-0 z-[99] flex flex-col items-center justify-center gap-2 overflow-y-auto bg-[rgba(8,16,40,0.97)] px-6 py-10 text-[#f3f6fc] backdrop-blur-sm">
-      {primaryNav.map((item) => {
-        const isServices = item.sectionId === "services";
-        const isActive =
-          activeSection === item.sectionId || (isServices && isOnServicePage);
-
-        if (isServices) {
-          return (
-            <div key={item.href} className="flex w-full max-w-sm flex-col items-center">
-              <button
-                type="button"
-                onClick={() => setServicesOpen((current) => !current)}
-                className={cn(
-                  "font-display sg-touch-target flex items-center gap-2 px-3 py-3 text-[22px] font-bold transition-colors sm:text-[26px]",
-                  isServicesActive ? "text-sg-accent" : undefined,
-                )}
-                aria-expanded={servicesOpen}
-              >
-                {item.label}
-                <span className="text-sm" aria-hidden>
-                  {servicesOpen ? "▴" : "▾"}
-                </span>
-              </button>
-              {servicesOpen ? (
-                <div className="mb-2 flex w-full flex-col gap-1 rounded-sg-md border border-sg-border bg-sg-panel p-2">
-                  {services.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={getServicePath(service.slug)}
-                      onClick={onClose}
-                      className={cn(
-                        "rounded-sg-sm px-3 py-2.5 text-left text-sm font-semibold transition-colors hover:bg-sg-panel-2 hover:text-sg-accent",
-                        pathname === getServicePath(service.slug)
-                          ? "text-sg-accent"
-                          : "text-sg-text-soft",
-                      )}
-                    >
-                      {service.title}
-                    </Link>
-                  ))}
-                  <Link
-                    href={item.href}
-                    onClick={onClose}
-                    className="mt-1 border-t border-sg-border px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-sg-text-faint transition-colors hover:text-sg-accent"
-                  >
-                    View all services
-                  </Link>
-                </div>
-              ) : null}
-            </div>
-          );
-        }
-
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={onClose}
-            className={cn(
-              "font-display sg-touch-target px-3 py-3 text-[22px] font-bold transition-colors sm:text-[26px]",
-              isActive ? "text-sg-accent" : undefined,
-            )}
-            aria-current={isActive ? "page" : undefined}
-          >
-            {item.label}
-          </Link>
-        );
-      })}
-      <Link
-        href="/#contact"
-        onClick={onClose}
-        className="mt-3.5 rounded-sg-pill bg-sg-accent px-[30px] py-3.5 text-lg font-bold text-sg-hero"
-      >
-        Request Survey
-      </Link>
-    </div>
   );
 }
 
@@ -207,13 +139,14 @@ export function SiteChrome({
   return (
     <>
       <ScrollProgress progress={progress} />
-      <header className="fixed inset-x-0 top-0 z-[100]">
+      <header className="fixed inset-x-0 top-0 z-[100] isolate">
         <Navbar
           scrolled={scrolled}
           activeSection={activeSection}
-          onOpenMenu={() => setMenuOpen(true)}
+          menuOpen={menuOpen}
+          onToggleMenu={() => setMenuOpen((current) => !current)}
         />
-        <HeaderMarqueeBar />
+        <HeaderMarqueeBar className="relative z-[1]" />
       </header>
       <MobileMenu
         open={menuOpen}

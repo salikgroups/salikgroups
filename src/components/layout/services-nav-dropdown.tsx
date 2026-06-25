@@ -35,7 +35,7 @@ export function ServicesNavDropdown({ href, label, isActive }: ServicesNavDropdo
         ) : null}
       </Link>
 
-      <div className="pointer-events-none absolute left-1/2 top-full z-[110] w-[min(320px,calc(100vw-2rem))] -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+      <div className="pointer-events-none absolute left-1/2 top-full z-[120] w-[min(320px,calc(100vw-2rem))] -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
         <div className="overflow-hidden rounded-sg-md border border-sg-border bg-[var(--sg-nav-bg)] shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-[14px]">
           <ul className="max-h-[min(70vh,420px)] overflow-y-auto py-2">
             {services.map((service) => {

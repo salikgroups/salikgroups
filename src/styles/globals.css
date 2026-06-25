@@ -68,7 +68,7 @@
   --spacing-section-x: clamp(1rem, 4vw, 7vw);
   --spacing-section-y: clamp(3rem, 8vw, 5.625rem);
   --spacing-container: 1240px;
-  --sg-chrome-height: clamp(132px, 24vw, 176px);
+  --sg-chrome-height: clamp(108px, 22vw, 176px);
 }
 
 @layer base {

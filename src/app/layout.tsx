@@ -94,6 +94,9 @@ export const metadata: Metadata = {
     icon: siteConfig.emblemSrc,
     apple: siteConfig.emblemSrc,
   },
+  verification: {
+    google: "p_qD6l4T730f9W7kj9v8wwqk_stcwPxReJmA1-DzEz4",
+  },
 };
 
 export default function RootLayout({

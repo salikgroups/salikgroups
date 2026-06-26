@@ -1,4 +1,5 @@
 import type { Project } from "@/types/content";
+import { projectCoverImages, projectGalleries } from "@/content/media";
 
 export const projects: Project[] = [
   {
@@ -11,8 +12,8 @@ export const projects: Project[] = [
     client: "Government / Safe City Programme",
     description:
       "34 sites in Sialkot, 54 in Sheikhupura and 400+ CCTV cameras surveyed, installed and commissioned.",
-    image:
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=72&auto=format&fit=crop",
+    image: projectCoverImages["safe-city"],
+    gallery: [...projectGalleries["safe-city"]],
     overview: [
       "Salik Groups & Co implemented Safe City projects in District Sialkot (34 sites) and District Sheikhupura (54 sites), where more than 400+ CCTV cameras were installed and made fully operational.",
       "The work included site surveys, camera installation, structured cabling, network setup, and connection with centralized monitoring systems.",
@@ -45,8 +46,8 @@ export const projects: Project[] = [
     client: "EPA & CCD Green Building",
     description:
       "63 HIKVISION LED panels supplied, programmed and commissioned for centralised real-time visual control.",
-    image:
-      "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?w=800&q=72&auto=format&fit=crop",
+    image: projectCoverImages["video-wall"],
+    gallery: [...projectGalleries["video-wall"]],
     overview: [
       "Salik Groups & Co successfully completed the video wall installation project at EPA & CCD Green Building, Lahore, in 2025, involving the supply, installation, programming, and commissioning of 63 HIKVISION LED display panels.",
       "The project required precise alignment, structured power and data integration, system programming, and centralized control configuration to ensure smooth and uninterrupted display performance.",
@@ -79,8 +80,8 @@ export const projects: Project[] = [
     client: "Government / District Administration",
     description:
       "A durable, safety-compliant perimeter solution supplied, installed, tested and commissioned.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=72&auto=format&fit=crop",
+    image: projectCoverImages["electric-fence"],
+    gallery: [...projectGalleries["electric-fence"]],
     overview: [
       "Salik Groups & Co successfully completed the Electric Fence Installation Project in District Lahore during 2025, delivering a reliable and high-performance perimeter security solution.",
       "The project included site assessment, supply, installation, testing, and commissioning of electric fencing systems designed to enhance security and prevent unauthorized access.",
@@ -114,6 +115,7 @@ export const projects: Project[] = [
       "UVSS integrated with monitoring stations for real-time under-vehicle inspection and threat detection.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=72&auto=format&fit=crop",
+    gallery: [],
     overview: [
       "Salik Groups & Co successfully completed the Under Vehicle Scanning System (UVSS) installation project for the Counter Terrorism Department (CTD), delivering a reliable and high-security vehicle inspection solution.",
       "The scope of work included supply, installation, system configuration, and commissioning of the UVSS, integrated with monitoring stations to enable real-time under-vehicle inspection and threat detection.",
@@ -145,8 +147,8 @@ export const projects: Project[] = [
     client: "Commercial / Institutional Client",
     description:
       "Secure point-to-point and point-to-multipoint links planned, aligned, optimised and commissioned.",
-    image:
-      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=72&auto=format&fit=crop",
+    image: projectCoverImages.networking,
+    gallery: [...projectGalleries.networking],
     overview: [
       "Salik Groups & Co successfully completed the Ubiquiti wireless network link installation project in District Lahore during 2024, delivering a high-performance and reliable connectivity solution.",
       "The project involved site survey, link planning, installation, configuration, alignment, and commissioning of Ubiquiti wireless equipment to establish secure and stable point-to-point and point-to-multipoint communication links.",
@@ -178,8 +180,8 @@ export const projects: Project[] = [
     client: "Industrial / Commercial Client",
     description:
       "Load analysis, system design, panel & inverter supply, installation and commissioning for efficient power.",
-    image:
-      "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=800&q=72&auto=format&fit=crop",
+    image: projectCoverImages.solar,
+    gallery: [...projectGalleries.solar],
     overview: [
       "Salik Groups & Co delivers comprehensive high-capacity solar energy systems designed to meet the growing power demands of government institutions, industrial facilities, commercial complexes, and large infrastructures.",
       "This project covered load analysis, system design, panel and inverter supply, installation and commissioning — following international safety and engineering standards with strict quality control and performance testing.",

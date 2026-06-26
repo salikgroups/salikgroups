@@ -1,4 +1,5 @@
 import { seoConfig } from "@/config/seo";
+import { getAllGalleryIds } from "@/lib/galleries";
 import { getAllProjectSlugs } from "@/lib/projects";
 import { getAllServiceSlugs } from "@/lib/services";
 import type { MetadataRoute } from "next";
@@ -46,5 +47,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
+  const galleryRoutes: MetadataRoute.Sitemap = getAllGalleryIds().map(
+    (id) => ({
+      url: `${baseUrl}/galleries/${id}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    }),
+  );
+
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...galleryRoutes];
 }

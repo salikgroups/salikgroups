@@ -1,3 +1,4 @@
+import { aboutFeatureImage } from "@/content/media";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/config/site";
 import Image from "next/image";
@@ -28,8 +29,8 @@ export function AboutSection() {
         <Reveal delay={120}>
           <div className="relative min-h-[280px] overflow-hidden rounded-sg-xl border border-white/10 sm:min-h-[420px]">
             <Image
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=72&auto=format&fit=crop"
-              alt="Salik Groups & Co field technicians on site"
+              src={aboutFeatureImage}
+              alt="Salik Groups & Co Safe City surveillance installation on site"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

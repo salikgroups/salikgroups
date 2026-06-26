@@ -6,6 +6,7 @@ import { AboutSection } from "@/components/sections/about-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { FeaturedReviewsSection } from "@/components/sections/featured-reviews-section";
 import { FeaturesStripSection } from "@/components/sections/features-strip-section";
+import { FieldWorkSection } from "@/components/sections/field-work-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { IndustriesSection } from "@/components/sections/industries-section";
 import { PartnersSection } from "@/components/sections/partners-section";
@@ -13,6 +14,7 @@ import { PlatformRatingsSection } from "@/components/sections/platform-ratings-s
 import { ProcessSection } from "@/components/sections/process-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { TeamSection } from "@/components/sections/team-section";
 import { TrustStatsSection } from "@/components/sections/trust-stats-section";
 import { WhyUsSection } from "@/components/sections/why-us-section";
 
@@ -23,12 +25,14 @@ export function HomePage() {
         <HeroSection />
         <PlatformRatingsSection />
         <AboutSection />
+        <TeamSection />
         <TrustStatsSection />
         <ServicesSection />
         <FeaturesStripSection />
         <WhyUsSection />
         <ProcessSection />
         <ProjectsSection />
+        <FieldWorkSection />
         <IndustriesSection />
         <PartnersSection />
         <FeaturedReviewsSection />

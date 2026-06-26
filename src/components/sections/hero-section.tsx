@@ -21,7 +21,7 @@ export function HeroSection() {
       <div className="pointer-events-none absolute -right-[5%] -top-[10%] h-[680px] w-[680px] rounded-full bg-[radial-gradient(circle,rgba(244,159,28,0.2),rgba(244,159,28,0)_62%)] animate-[sg-pulse-soft_8s_ease-in-out_infinite]" />
       <div className="pointer-events-none absolute -bottom-[20%] -left-[10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(0,165,224,0.14),rgba(0,165,224,0)_64%)] animate-[sg-pulse-soft_10s_ease-in-out_infinite_1s]" />
 
-      <div className="relative mx-auto grid max-w-[var(--spacing-container)] grid-cols-1 items-center gap-8 sm:gap-10 md:grid-cols-[1.05fr_0.95fr]">
+      <div className="relative mx-auto grid max-w-[var(--spacing-container)] grid-cols-1 items-center gap-8 text-center sm:gap-10 sm:text-left md:grid-cols-[1.05fr_0.95fr]">
         <HeroAnimatedContent />
 
         <Reveal delay={180}>

@@ -26,10 +26,10 @@ export function HeroAnimatedContent({ className }: HeroAnimatedContentProps) {
   }, []);
 
   return (
-    <div className={className}>
+    <div className={cn("text-center sm:text-left", className)}>
       <div
         className={cn(
-          "mb-5 inline-flex max-w-full items-center gap-2 rounded-sg-pill border border-white/12 bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-[#cdd5ea] sm:mb-[26px] sm:gap-2.5 sm:px-4 sm:py-2 sm:text-[13px]",
+          "mx-auto mb-5 inline-flex max-w-full items-center gap-2 rounded-sg-pill border border-white/12 bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-[#cdd5ea] sm:mx-0 sm:mb-[26px] sm:gap-2.5 sm:px-4 sm:py-2 sm:text-[13px]",
           "animate-[sg-fade-up_0.8s_cubic-bezier(0.16,0.8,0.3,1)_both]",
         )}
       >
@@ -49,27 +49,36 @@ export function HeroAnimatedContent({ className }: HeroAnimatedContentProps) {
         connectivity, <span className="text-sg-accent">engineered</span> as one.
       </h1>
 
-      <p className="mt-4 max-w-[540px] text-[clamp(15px,2.5vw,19px)] leading-[1.65] text-[#aab4cf] sm:mt-6">
+      <p className="mx-auto mt-4 max-w-[540px] text-[clamp(15px,2.5vw,19px)] leading-[1.65] text-[#aab4cf] sm:mx-0 sm:mt-6">
         {heroSubtitle}
       </p>
 
       <div
         className={cn(
-          "mt-6 flex flex-col gap-3 transition-all duration-700 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4",
+          "mt-6 flex flex-row flex-wrap items-center justify-center gap-2 transition-all duration-700 sm:mt-9 sm:justify-start sm:gap-4",
           showActions ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
         )}
       >
-        <Button href="/#contact" className="w-full justify-center sm:w-auto">
-          Request a Technical Survey →
+        <Button
+          href="/#contact"
+          className="px-3.5 py-2.5 text-xs sm:px-[30px] sm:py-4 sm:text-base"
+        >
+          <span className="sm:hidden">Request Survey →</span>
+          <span className="hidden sm:inline">Request a Technical Survey →</span>
         </Button>
-        <Button href="/#projects" variant="secondary" className="w-full justify-center sm:w-auto">
-          Explore Our Projects
+        <Button
+          href="/#projects"
+          variant="secondary"
+          className="px-3.5 py-2.5 text-xs sm:px-[30px] sm:py-4 sm:text-base"
+        >
+          <span className="sm:hidden">Our Projects</span>
+          <span className="hidden sm:inline">Explore Our Projects</span>
         </Button>
       </div>
 
       <div
         className={cn(
-          "mt-8 grid grid-cols-2 gap-x-4 gap-y-5 transition-all duration-700 sm:mt-[46px] sm:flex sm:flex-wrap sm:gap-[30px]",
+          "mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-5 transition-all duration-700 sm:mt-[46px] sm:justify-start sm:gap-[30px]",
           showStats ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
         )}
       >
@@ -83,6 +92,7 @@ export function HeroAnimatedContent({ className }: HeroAnimatedContentProps) {
               label={stat.label}
               start={showStats}
               delay={index * 120}
+              className="text-center sm:text-left"
             />
           </div>
         ))}

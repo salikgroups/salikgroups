@@ -1,4 +1,5 @@
 import type { Service } from "@/types/content";
+import { serviceCoverImages, serviceGalleries } from "@/content/media";
 
 export const services: Service[] = [
   {
@@ -8,8 +9,8 @@ export const services: Service[] = [
     title: "Solar Energy Solutions",
     description:
       "Commercial, hybrid and high-capacity solar systems engineered for energy yield, reliability and long-term cost efficiency.",
-    image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=72&auto=format&fit=crop",
+    image: serviceCoverImages["solar-energy"],
+    gallery: [...serviceGalleries["solar-energy"]],
     icon: "solar",
     metaDescription:
       "Commercial and high-capacity solar energy systems in Pakistan — site assessment, design, supply, installation, commissioning and support by Salik Groups & Co.",
@@ -52,8 +53,8 @@ export const services: Service[] = [
     title: "CCTV & Surveillance",
     description:
       "Scalable surveillance with site surveys, camera installation, structured cabling, networking and centralised monitoring.",
-    image:
-      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1200&q=72&auto=format&fit=crop",
+    image: serviceCoverImages["cctv-surveillance"],
+    gallery: [...serviceGalleries["cctv-surveillance"]],
     icon: "cctv",
     metaDescription:
       "CCTV and Safe City surveillance solutions in Pakistan — site surveys, camera installation, cabling, networking and central monitoring by Salik Groups & Co.",
@@ -140,8 +141,8 @@ export const services: Service[] = [
     title: "Electric Fencing",
     description:
       "Safety-compliant perimeter security that deters intrusion and strengthens protection at sensitive sites.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=72&auto=format&fit=crop",
+    image: serviceCoverImages["electric-fencing"],
+    gallery: [...serviceGalleries["electric-fencing"]],
     icon: "fence",
     metaDescription:
       "Electric fence and perimeter security solutions in Pakistan — assessment, supply, installation, testing and commissioning by Salik Groups & Co.",
@@ -184,8 +185,8 @@ export const services: Service[] = [
     title: "Generators",
     description:
       "Standby power supply, installation and synchronisation for uninterrupted operation during outages.",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=72&auto=format&fit=crop",
+    image: serviceCoverImages.generators,
+    gallery: [...serviceGalleries.generators],
     icon: "generator",
     metaDescription:
       "Generator supply, installation and synchronisation in Pakistan — standby power for commercial and industrial sites by Salik Groups & Co.",
@@ -228,8 +229,8 @@ export const services: Service[] = [
     title: "Video Intercom",
     description:
       "Audio-video door entry and access systems for secure, convenient visitor management.",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=1200&q=72&auto=format&fit=crop",
+    image: serviceCoverImages["video-intercom"],
+    gallery: [...serviceGalleries["video-intercom"]],
     icon: "intercom",
     metaDescription:
       "Video intercom and door entry systems in Pakistan — secure visitor management, installation and integration by Salik Groups & Co.",
@@ -316,8 +317,8 @@ export const services: Service[] = [
     title: "Enterprise Networking",
     description:
       "Structured networks and secure point-to-point wireless links — planned, installed, configured and tested.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=72&auto=format&fit=crop",
+    image: serviceCoverImages["enterprise-networking"],
+    gallery: [...serviceGalleries["enterprise-networking"]],
     icon: "network",
     metaDescription:
       "Enterprise networking and wireless link installation in Pakistan — structured cabling, secure links and commissioning by Salik Groups & Co.",

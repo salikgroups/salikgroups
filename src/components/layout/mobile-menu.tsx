@@ -152,11 +152,11 @@ export function MobileMenu({ open, onClose, activeSection }: MobileMenuProps) {
           </ul>
         </nav>
 
-        <div className="border-t border-sg-border p-4">
+        <div className="border-t border-sg-border px-4 py-3.5">
           <Link
             href="/#contact"
             onClick={onClose}
-            className="flex w-full items-center justify-center rounded-sg-pill bg-sg-accent px-5 py-3.5 text-base font-bold text-sg-hero shadow-[0_8px_24px_rgba(244,159,28,0.28)]"
+            className="mx-auto flex w-fit items-center justify-center rounded-sg-pill bg-sg-accent px-4 py-2.5 text-sm font-bold text-sg-hero shadow-[0_8px_24px_rgba(244,159,28,0.28)]"
           >
             Request Survey
           </Link>

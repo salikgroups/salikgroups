@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ImageGallery } from "@/components/ui/image-gallery";
 import { Reveal } from "@/components/ui/reveal";
 import { SurfaceCard } from "@/components/ui/surface-card";
 import type { Project } from "@/types/content";
@@ -80,6 +81,29 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           </div>
         </div>
       </section>
+
+      {project.gallery.length > 0 ? (
+        <section
+          id="gallery"
+          className="border-y border-sg-border-soft bg-sg-panel-2 sg-section-x sg-section-y scroll-mt-28"
+        >
+          <div className="mx-auto max-w-[var(--spacing-container)]">
+            <Reveal>
+              <div className="mb-8 max-w-[620px] sm:mb-12">
+                <div className="sg-eyebrow mb-4">Project gallery</div>
+                <h2 className="sg-heading text-[clamp(24px,3vw,38px)] leading-[1.12]">
+                  On-site photos from this deployment.
+                </h2>
+                <p className="mt-3 text-sm leading-[1.65] text-sg-text-dim sm:text-[15px]">
+                  Use the arrows or click a thumbnail below to view each photo in the main panel.
+                </p>
+              </div>
+            </Reveal>
+
+            <ImageGallery images={project.gallery} altPrefix={project.title} />
+          </div>
+        </section>
+      ) : null}
 
       <section className="sg-section-x sg-section-y">
         <div className="mx-auto grid max-w-[var(--spacing-container)] grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">

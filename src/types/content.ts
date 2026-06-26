@@ -16,22 +16,6 @@ export type ServiceIcon =
   | "it"
   | "repair";
 
-export type Service = {
-  id: string;
-  slug: string;
-  shortLabel: string;
-  title: string;
-  description: string;
-  image: string;
-  icon: ServiceIcon;
-  metaDescription: string;
-  tagline: string;
-  overview: string[];
-  capabilities: string[];
-  deliverables: string[];
-  industries: string[];
-};
-
 export type Project = {
   id: string;
   slug: string;
@@ -42,10 +26,44 @@ export type Project = {
   client: string;
   description: string;
   image: string;
+  gallery: string[];
   overview: string[];
   highlights: string[];
   deliverables: string[];
   metaDescription: string;
+};
+
+export type Service = {
+  id: string;
+  slug: string;
+  shortLabel: string;
+  title: string;
+  description: string;
+  image: string;
+  gallery?: string[];
+  icon: ServiceIcon;
+  metaDescription: string;
+  tagline: string;
+  overview: string[];
+  capabilities: string[];
+  deliverables: string[];
+  industries: string[];
+};
+
+export type TeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+};
+
+export type FieldWorkShowcase = {
+  id: string;
+  tag: string;
+  title: string;
+  description: string;
+  images: string[];
 };
 
 export type Industry = {

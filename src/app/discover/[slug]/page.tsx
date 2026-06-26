@@ -52,6 +52,7 @@ export default async function Page({ params }: DiscoverPageProps) {
             name: page.metaTitle,
             description: page.metaDescription,
             path,
+            image: page.ogImage,
           }),
           ...(faqJsonLd ? [faqJsonLd] : []),
           getBreadcrumbJsonLd([

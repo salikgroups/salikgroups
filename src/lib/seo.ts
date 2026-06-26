@@ -1,9 +1,10 @@
-import { siteConfig } from "@/config/site";
+import { ogImages } from "@/config/og-images";
 import {
   globalKeywords,
   homepageSeo,
   seoConfig,
 } from "@/config/seo";
+import { siteConfig } from "@/config/site";
 import {
   legalSeoKeywords,
   projectSeoKeywords,
@@ -64,6 +65,21 @@ export function buildPageMetadata({
   const canonical = absoluteUrl(path);
   const mergedKeywords = buildKeywords(keywords);
   const imageUrl = ogImage.startsWith("http") ? ogImage : absoluteAssetUrl(ogImage);
+  const imageType = imageUrl.endsWith(".webp")
+    ? "image/webp"
+    : imageUrl.endsWith(".png")
+      ? "image/png"
+      : imageUrl.endsWith(".jpg") || imageUrl.endsWith(".jpeg")
+        ? "image/jpeg"
+        : undefined;
+
+  const ogImageEntry = {
+    url: imageUrl,
+    width: 1200,
+    height: 630,
+    alt: `${seoConfig.siteName} — ${title}`,
+    ...(imageType ? { type: imageType } : {}),
+  };
 
   return {
     title,
@@ -84,18 +100,16 @@ export function buildPageMetadata({
       siteName: seoConfig.siteName,
       locale: seoConfig.locale,
       type,
-      images: [
-        {
-          url: imageUrl,
-          alt: `${seoConfig.siteName} — ${title}`,
-        },
-      ],
+      images: [ogImageEntry],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [imageUrl],
+      images: {
+        url: imageUrl,
+        alt: ogImageEntry.alt,
+      },
     },
     robots: noIndex
       ? { index: false, follow: false }
@@ -125,6 +139,7 @@ export function buildHomeMetadata(): Metadata {
     description: homepageSeo.description,
     path: "/",
     keywords: [...homepageSeo.keywords],
+    ogImage: ogImages.homepage,
   });
 }
 
@@ -202,6 +217,7 @@ export function buildDiscoverMetadata(page: DiscoverPage): Metadata {
     description: page.metaDescription,
     path: `/discover/${page.slug}`,
     keywords: page.keywords,
+    ogImage: page.ogImage,
     type: "article",
   });
 }
@@ -212,7 +228,7 @@ export function buildSeoLandingMetadata(page: SeoLandingPage): Metadata {
     description: page.metaDescription,
     path: `/solutions/${page.slug}`,
     keywords: [...page.keywords],
-    ogImage: page.ogImage,
+    ogImage: page.ogImage ?? ogImages.default,
     type: "article",
   });
 }
@@ -425,6 +441,7 @@ export function buildLegalMetadata(
     description: `${description} Official ${title.toLowerCase()} for ${siteConfig.name} — solar, security, networking and technical services in Pakistan.`,
     path,
     keywords: [...keywords],
+    ogImage: ogImages.brand,
   });
 }
 

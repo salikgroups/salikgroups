@@ -1,9 +1,11 @@
 import { JsonLd } from "@/components/seo/json-ld";
 import { homepageSeo, seoConfig } from "@/config/seo";
+import { ogImages } from "@/config/og-images";
 import { siteConfig } from "@/config/site";
 import {
   getLocalBusinessJsonLd,
   getOrganizationJsonLd,
+  absoluteAssetUrl,
 } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Manrope, Sora } from "next/font/google";
@@ -46,11 +48,25 @@ export const metadata: Metadata = {
     siteName: seoConfig.siteName,
     title: homepageSeo.title,
     description: homepageSeo.description,
+    url: seoConfig.siteUrl,
+    images: [
+      {
+        url: absoluteAssetUrl(ogImages.homepage),
+        width: 1200,
+        height: 630,
+        alt: `${seoConfig.siteName} — solar, CCTV & electronic services Pakistan`,
+        type: "image/webp",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: homepageSeo.title,
     description: homepageSeo.description,
+    images: {
+      url: absoluteAssetUrl(ogImages.homepage),
+      alt: `${seoConfig.siteName} — solar, CCTV & electronic services Pakistan`,
+    },
   },
   robots: {
     index: true,

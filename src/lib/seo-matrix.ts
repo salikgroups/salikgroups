@@ -1,4 +1,5 @@
 import { pakistanCities } from "@/data/pakistan-cities";
+import { getTopicOgImage } from "@/config/og-images";
 import {
   brandSlugPrefixes,
   seoModifiers,
@@ -25,6 +26,7 @@ export type DiscoverPage = {
   metaDescription: string;
   headline: string;
   subheadline: string;
+  ogImage: string;
   keywords: string[];
   paragraphs: string[];
   faqs: Array<{ question: string; answer: string }>;
@@ -179,6 +181,7 @@ function createModifierPage(modifier: SeoModifier, topic: SeoTopic, city: Pakist
     metaDescription: `Looking for ${modLabel.toLowerCase()} ${topic.label.toLowerCase()} in ${city.name}? Salik Groups & Co — best electronic services in Pakistan. Survey, supply, installation & support. Call +92 304 5050750.`,
     headline,
     subheadline,
+    ogImage: getTopicOgImage(topic.slug),
     keywords: buildKeywords({ kind: "modifier", modifier, topic, city }),
     paragraphs: [] as string[],
     faqs: [] as Array<{ question: string; answer: string }>,
@@ -207,6 +210,7 @@ function createBrandPage(brand: string, topic: SeoTopic, city: PakistanCity): Di
     metaDescription: `${brandLabel} ${topic.label.toLowerCase()} in ${city.name} — Salik Groups & Co. Solar, CCTV, fencing, generators & networking. Request a survey at salikgroups.com.`,
     headline,
     subheadline,
+    ogImage: getTopicOgImage(topic.slug),
     keywords: buildKeywords({ kind: "brand", brand, topic, city }),
     paragraphs: [] as string[],
     faqs: [] as Array<{ question: string; answer: string }>,

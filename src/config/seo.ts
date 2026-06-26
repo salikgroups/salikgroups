@@ -1,11 +1,12 @@
 import { siteConfig } from "@/config/site";
+import { ogImages } from "@/config/og-images";
 
 export const seoConfig = {
   siteUrl: "https://www.salikgroups.com",
   siteName: siteConfig.name,
   alternateNames: ["Salik Groups", "Salik Group", "Salik Enterprises"],
   locale: "en_PK",
-  defaultOgImage: "/sallikLogo.svg",
+  defaultOgImage: ogImages.default,
   twitterHandle: "@SalikGroups",
   geo: {
     region: "PK-PB",

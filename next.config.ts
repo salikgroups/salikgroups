@@ -16,14 +16,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/seo-sitemap/:chunk.xml",
-        destination: "/seo-sitemap/:chunk",
-      },
-    ];
-  },
 };
 
 export default nextConfig;

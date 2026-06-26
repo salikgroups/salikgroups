@@ -81,7 +81,7 @@
       ]
     },
     {
-      "source": "/seo-sitemap/(.*)",
+      "source": "/seo-sitemap/(.*)\\.xml",
       "headers": [
         {
           "key": "Cache-Control",

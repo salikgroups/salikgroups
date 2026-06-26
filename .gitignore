@@ -71,5 +71,9 @@ next-env.d.ts
 .LSOverride
 __MACOSX/
 
+# generated SEO sitemaps (rebuilt on every deploy via prebuild)
+/public/seo-sitemap/
+/public/seo-sitemap-index.xml
+
 # large local reference assets (keep out of repo)
 *.pdf

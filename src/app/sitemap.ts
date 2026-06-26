@@ -1,6 +1,7 @@
 import { seoConfig } from "@/config/seo";
 import { getAllGalleryIds } from "@/lib/galleries";
 import { getAllProjectSlugs } from "@/lib/projects";
+import { getAllSeoPageSlugs } from "@/lib/seo-pages";
 import { getAllServiceSlugs } from "@/lib/services";
 import type { MetadataRoute } from "next";
 
@@ -26,6 +27,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/llms.txt`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/llms-full.txt`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/ai.txt`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
 
@@ -56,5 +75,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...galleryRoutes];
+  const solutionRoutes: MetadataRoute.Sitemap = getAllSeoPageSlugs().map(
+    (slug) => ({
+      url: `${baseUrl}/solutions/${slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }),
+  );
+
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...solutionRoutes,
+    ...projectRoutes,
+    ...galleryRoutes,
+  ];
 }

@@ -55,6 +55,24 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    types: {
+      "text/plain": [
+        { url: "/llms.txt", title: "LLMs.txt" },
+        { url: "/llms-full.txt", title: "LLMs full reference" },
+        { url: "/ai.txt", title: "AI crawler manifest" },
+      ],
+    },
   },
   icons: {
     icon: siteConfig.emblemSrc,
@@ -75,6 +93,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <link rel="author" href={`${seoConfig.siteUrl}/llms.txt`} type="text/plain" title="LLMs.txt" />
+        <link rel="alternate" href={`${seoConfig.siteUrl}/llms.txt`} type="text/plain" title="LLMs.txt" />
+        <link rel="alternate" href={`${seoConfig.siteUrl}/ai.txt`} type="text/plain" title="AI.txt" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow" />
+        <meta
+          name="ai-content-policy"
+          content="allow-indexing, allow-training, allow-answers, allow-citation"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('sg-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){}})();`,

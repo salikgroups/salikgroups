@@ -4,7 +4,8 @@ import { SiteShell } from "@/components/layout/site-shell";
 import { GalleryDetailPage } from "@/components/pages/gallery-detail-page";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getAllGalleryIds, getGalleryById } from "@/lib/galleries";
-import { getBreadcrumbJsonLd } from "@/lib/seo";
+import { buildGalleryMetadata, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
+import { getGallerySeoExtension } from "@/content/seo-extensions";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -24,15 +25,7 @@ export async function generateMetadata({ params }: GalleryPageProps): Promise<Me
     return { title: `${siteConfig.name} | Gallery Not Found`, robots: { index: false } };
   }
 
-  return {
-    title: `${showcase.title} | ${siteConfig.name}`,
-    description: showcase.description,
-    openGraph: {
-      title: showcase.title,
-      description: showcase.description,
-      images: [{ url: showcase.images[0] }],
-    },
-  };
+  return buildGalleryMetadata(showcase);
 }
 
 export default async function Page({ params }: GalleryPageProps) {
@@ -43,14 +36,20 @@ export default async function Page({ params }: GalleryPageProps) {
     notFound();
   }
 
+  const extension = getGallerySeoExtension(showcase.id);
+  const faqJsonLd = extension ? getFaqJsonLd(extension.faqs) : null;
+
   return (
     <SiteShell>
       <JsonLd
-        data={getBreadcrumbJsonLd([
-          { name: siteConfig.name, path: "/" },
-          { name: "Field work", path: "/#field-work" },
-          { name: showcase.title, path: `/galleries/${showcase.id}` },
-        ])}
+        data={[
+          getBreadcrumbJsonLd([
+            { name: siteConfig.name, path: "/" },
+            { name: "Field work", path: "/#field-work" },
+            { name: showcase.title, path: `/galleries/${showcase.id}` },
+          ]),
+          ...(faqJsonLd ? [faqJsonLd] : []),
+        ]}
       />
       <GalleryDetailPage showcase={showcase} />
       <Footer />

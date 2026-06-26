@@ -20,6 +20,12 @@ export const globalKeywords = [
   "Salik Group",
   "Salik Enterprises",
   "salikgroups.com",
+  "best electronic services in pakistan",
+  "best electronic products in pakistan",
+  "best products of electronics in pakistan",
+  "best solar panel service in pakistan",
+  "solar panel salikgroups",
+  "inverters salikgroups",
   "solar energy Pakistan",
   "CCTV installation Pakistan",
   "security systems Lahore",
@@ -30,6 +36,8 @@ export const globalKeywords = [
   "video wall Pakistan",
   "IT solutions Lahore",
   "technical services Pakistan",
+  "hybrid solar inverters Pakistan",
+  "commercial solar Lahore",
 ] as const;
 
 export const homepageSeo = {
@@ -45,6 +53,11 @@ export const homepageSeo = {
     "Salik Groups & Co Lahore",
     "Salik Groups & Co Pakistan",
     "salikgroups.com",
+    "best electronic services in pakistan",
+    "best electronic products in pakistan",
+    "best solar panel service in pakistan",
+    "solar panel salikgroups",
+    "inverters salikgroups",
     "solar energy company Pakistan",
     "commercial solar installation Lahore",
     "CCTV camera installation Pakistan",

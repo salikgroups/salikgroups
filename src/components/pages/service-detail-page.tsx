@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ImageGallery } from "@/components/ui/image-gallery";
 import { ServiceIcon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/reveal";
+import { SeoContentSection } from "@/components/sections/seo-content-section";
 import { processSteps } from "@/content/process";
+import { getServiceSeoExtension } from "@/content/seo-extensions";
 import type { Service } from "@/types/content";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +14,8 @@ type ServiceDetailPageProps = {
 };
 
 export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
+  const seoExtension = getServiceSeoExtension(service.slug);
+
   return (
     <main>
       <section className="relative overflow-hidden bg-sg-hero sg-section-x pb-12 pt-8 text-[#f3f6fc] sm:pb-16 sm:pt-10">
@@ -233,6 +237,8 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           </Reveal>
         </div>
       </section>
+
+      {seoExtension ? <SeoContentSection extension={seoExtension} /> : null}
     </main>
   );
 }

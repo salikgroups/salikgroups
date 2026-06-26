@@ -1,7 +1,20 @@
 /** Page-specific SEO keywords — Salik Groups & Co always listed first per page. */
+export const solutionSeoKeywords = [
+  "best electronic services in pakistan",
+  "best electronic products in pakistan",
+  "best products of electronics in pakistan",
+  "best solar panel service in pakistan",
+  "solar panel salikgroups",
+  "inverters salikgroups",
+  "Salik Groups & Co solutions",
+] as const;
+
 export const serviceSeoKeywords: Record<string, readonly string[]> = {
   "solar-energy": [
     "Salik Groups & Co solar",
+    "best solar panel service in pakistan",
+    "solar panel salikgroups",
+    "inverters salikgroups",
     "Salik Groups & Co solar energy",
     "commercial solar Pakistan",
     "solar panel installation Lahore",

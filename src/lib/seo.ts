@@ -9,7 +9,9 @@ import {
   projectSeoKeywords,
   serviceSeoKeywords,
 } from "@/content/seo-keywords";
-import type { Project, Service } from "@/types/content";
+import type { DiscoverPage } from "@/lib/seo-matrix";
+import type { FieldWorkShowcase, Project, Service } from "@/types/content";
+import type { SeoFaq, SeoLandingPage } from "@/types/seo";
 import type { Metadata } from "next";
 
 function dedupeKeywords(keywords: string[]): string[] {
@@ -127,8 +129,8 @@ export function buildHomeMetadata(): Metadata {
 }
 
 export function buildServiceMetadata(service: Service): Metadata {
-  const title = `${siteConfig.name} | ${service.title} — Lahore & Pakistan`;
-  const description = `${service.metaDescription} Contact ${siteConfig.name} at ${siteConfig.contact.phone} for surveys, quotations and project delivery across Pakistan.`;
+  const title = `${siteConfig.name} | ${service.title} — Best in Pakistan`;
+  const description = `${service.metaDescription} ${siteConfig.name} delivers among the best electronic services in Pakistan — survey, design, supply, installation and support. Call ${siteConfig.contact.phone}.`;
   const slugKeywords = serviceSeoKeywords[service.slug] ?? [];
 
   return buildPageMetadata({
@@ -137,11 +139,12 @@ export function buildServiceMetadata(service: Service): Metadata {
     path: `/services/${service.slug}`,
     keywords: [
       ...slugKeywords,
+      "best electronic services in pakistan",
       `${siteConfig.name} ${service.shortLabel}`,
       service.title,
       service.shortLabel,
       ...service.industries,
-      ...service.capabilities.slice(0, 4),
+      ...service.capabilities.slice(0, 6),
     ],
     ogImage: service.image,
     type: "article",
@@ -149,8 +152,8 @@ export function buildServiceMetadata(service: Service): Metadata {
 }
 
 export function buildProjectMetadata(project: Project): Metadata {
-  const title = `${siteConfig.name} | ${project.title} — Case Study Pakistan`;
-  const description = `${project.metaDescription} Delivered by ${siteConfig.name} (${project.year}) in ${project.location}.`;
+  const title = `${siteConfig.name} | ${project.title} — Project Pakistan`;
+  const description = `${project.metaDescription} Delivered by ${siteConfig.name} (${project.year}) in ${project.location}. View site photos and project details.`;
   const slugKeywords = projectSeoKeywords[project.slug] ?? [];
 
   return buildPageMetadata({
@@ -159,15 +162,111 @@ export function buildProjectMetadata(project: Project): Metadata {
     path: `/projects/${project.slug}`,
     keywords: [
       ...slugKeywords,
+      "Salik Groups & Co projects Pakistan",
       `${siteConfig.name} ${project.tag}`,
       project.title,
       project.location,
       project.client,
-      ...project.highlights.slice(0, 4),
+      ...project.highlights.slice(0, 6),
     ],
     ogImage: project.image,
     type: "article",
   });
+}
+
+export function buildGalleryMetadata(showcase: FieldWorkShowcase): Metadata {
+  const title = `${siteConfig.name} | ${showcase.title} — Site Photos Pakistan`;
+  const description = `${showcase.description} Browse ${showcase.images.length} on-site installation photos by ${siteConfig.name} — ${showcase.tag} projects across Pakistan.`;
+
+  return buildPageMetadata({
+    title,
+    description,
+    path: `/galleries/${showcase.id}`,
+    keywords: [
+      `${siteConfig.name} ${showcase.tag}`,
+      showcase.title,
+      "solar panel salikgroups",
+      "inverters salikgroups",
+      "Salik Groups field work Pakistan",
+      showcase.tag,
+      ...showcase.title.split(" ").slice(0, 4),
+    ],
+    ogImage: showcase.images[0],
+    type: "article",
+  });
+}
+
+export function buildDiscoverMetadata(page: DiscoverPage): Metadata {
+  return buildPageMetadata({
+    title: page.metaTitle,
+    description: page.metaDescription,
+    path: `/discover/${page.slug}`,
+    keywords: page.keywords,
+    type: "article",
+  });
+}
+
+export function buildSeoLandingMetadata(page: SeoLandingPage): Metadata {
+  return buildPageMetadata({
+    title: page.metaTitle,
+    description: page.metaDescription,
+    path: `/solutions/${page.slug}`,
+    keywords: [...page.keywords],
+    ogImage: page.ogImage,
+    type: "article",
+  });
+}
+
+export function getFaqJsonLd(faqs: SeoFaq[]) {
+  if (faqs.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function getWebPageJsonLd({
+  name,
+  description,
+  path,
+  image,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+    url: absoluteUrl(path),
+    inLanguage: "en-PK",
+    isPartOf: {
+      "@id": `${seoConfig.siteUrl}/#website`,
+    },
+    about: {
+      "@id": `${seoConfig.siteUrl}/#organization`,
+    },
+    ...(image
+      ? {
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: image.startsWith("http") ? image : absoluteAssetUrl(image),
+          },
+        }
+      : {}),
+  };
 }
 
 export function getOrganizationJsonLd() {
@@ -212,13 +311,21 @@ export function getWebSiteJsonLd() {
     "@type": "WebSite",
     "@id": `${seoConfig.siteUrl}/#website`,
     name: seoConfig.siteName,
-    alternateName: [...seoConfig.alternateNames],
+    alternateName: [...seoConfig.alternateNames, "Salik", "salikgroups"],
     url: seoConfig.siteUrl,
     description: homepageSeo.description,
+    inLanguage: "en-PK",
     publisher: {
       "@id": `${seoConfig.siteUrl}/#organization`,
     },
-    inLanguage: "en-PK",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${seoConfig.siteUrl}/discover/{search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 

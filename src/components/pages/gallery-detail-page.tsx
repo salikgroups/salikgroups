@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ImageGallery } from "@/components/ui/image-gallery";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
+import { SeoContentSection } from "@/components/sections/seo-content-section";
+import { getGallerySeoExtension } from "@/content/seo-extensions";
 import type { FieldWorkShowcase } from "@/types/content";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +13,8 @@ type GalleryDetailPageProps = {
 };
 
 export function GalleryDetailPage({ showcase }: GalleryDetailPageProps) {
+  const seoExtension = getGallerySeoExtension(showcase.id);
+
   return (
     <main>
       <section className="relative overflow-hidden bg-sg-hero sg-section-x pb-12 pt-8 text-[#f3f6fc] sm:pb-16 sm:pt-10">
@@ -77,6 +81,8 @@ export function GalleryDetailPage({ showcase }: GalleryDetailPageProps) {
           <ImageGallery images={showcase.images} altPrefix={showcase.title} />
         </div>
       </section>
+
+      {seoExtension ? <SeoContentSection extension={seoExtension} /> : null}
     </main>
   );
 }

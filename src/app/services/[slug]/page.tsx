@@ -6,8 +6,10 @@ import { JsonLd } from "@/components/seo/json-ld";
 import {
   buildServiceMetadata,
   getBreadcrumbJsonLd,
+  getFaqJsonLd,
   getServiceJsonLd,
 } from "@/lib/seo";
+import { getServiceSeoExtension } from "@/content/seo-extensions";
 import { getAllServiceSlugs, getServiceBySlug } from "@/lib/services";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -39,6 +41,9 @@ export default async function Page({ params }: ServicePageProps) {
     notFound();
   }
 
+  const extension = getServiceSeoExtension(service.slug);
+  const faqJsonLd = extension ? getFaqJsonLd(extension.faqs) : null;
+
   return (
     <SiteShell>
       <JsonLd
@@ -49,6 +54,7 @@ export default async function Page({ params }: ServicePageProps) {
             { name: "Services", path: "/#services" },
             { name: service.title, path: `/services/${service.slug}` },
           ]),
+          ...(faqJsonLd ? [faqJsonLd] : []),
         ]}
       />
       <ServiceDetailPage service={service} />

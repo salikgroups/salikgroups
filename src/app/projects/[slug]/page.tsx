@@ -6,8 +6,10 @@ import { JsonLd } from "@/components/seo/json-ld";
 import {
   buildProjectMetadata,
   getBreadcrumbJsonLd,
+  getFaqJsonLd,
   getProjectJsonLd,
 } from "@/lib/seo";
+import { getProjectSeoExtension } from "@/content/seo-extensions";
 import { getAllProjectSlugs, getProjectBySlug } from "@/lib/projects";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -39,6 +41,9 @@ export default async function Page({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const extension = getProjectSeoExtension(project.slug);
+  const faqJsonLd = extension ? getFaqJsonLd(extension.faqs) : null;
+
   return (
     <SiteShell>
       <JsonLd
@@ -49,6 +54,7 @@ export default async function Page({ params }: ProjectPageProps) {
             { name: "Projects", path: "/#projects" },
             { name: project.title, path: `/projects/${project.slug}` },
           ]),
+          ...(faqJsonLd ? [faqJsonLd] : []),
         ]}
       />
       <ProjectDetailPage project={project} />

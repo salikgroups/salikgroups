@@ -115,4 +115,4 @@ export const fieldWorkShowcases: FieldWorkShowcase[] = [
   },
 ];
 
-export const aboutFeatureImage = firstGalleryImage("/media/projects/safe-city");
+export const aboutFeatureImage = "/media/about-hero.jpg";

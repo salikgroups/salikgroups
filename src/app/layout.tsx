@@ -91,8 +91,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: siteConfig.emblemSrc,
-    apple: siteConfig.emblemSrc,
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   verification: {
     google: "p_qD6l4T730f9W7kj9v8wwqk_stcwPxReJmA1-DzEz4",

@@ -90,8 +90,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: [
+      { url: "/emblem.svg", type: "image/svg+xml" }
+    ],
+    shortcut: "/emblem.svg",
+    apple: "/emblem.svg",
   },
   verification: {
     google: "p_qD6l4T730f9W7kj9v8wwqk_stcwPxReJmA1-DzEz4",

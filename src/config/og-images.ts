@@ -1,8 +1,8 @@
 /** Raster images for Open Graph / Twitter cards (SVG logos are not supported by most apps). */
 export const ogImages = {
-  default: "/media/projects/solar/panels/01.webp",
-  homepage: "/media/projects/safe-city/01.webp",
-  brand: "/media/projects/safe-city/01.webp",
+  default: "/salik.webp",
+  homepage: "/salik.webp",
+  brand: "/salik.webp",
 } as const;
 
 export const topicOgImages: Record<string, string> = {

@@ -1,7 +1,6 @@
 import { JsonLd } from "@/components/seo/json-ld";
 import { homepageSeo, seoConfig } from "@/config/seo";
 import { ogImages } from "@/config/og-images";
-import { siteConfig } from "@/config/site";
 import {
   getLocalBusinessJsonLd,
   getOrganizationJsonLd,

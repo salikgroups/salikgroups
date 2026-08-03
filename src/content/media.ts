@@ -52,6 +52,19 @@ export const teamMembers: TeamMember[] = [
     bio: "Leads Salik Groups & Co with a focus on disciplined delivery, client accountability and long-term technical partnerships across Pakistan.",
   },
   {
+    id: "md",
+    name: "Vaneeza Fatima",
+    role: "Managing Director (MD)",
+    image: "/media/team/vaneeza-fatima.jpg",
+    bio: `As the Managing Director of Salik Group & Co., she provides strategic leadership and oversees the company's vision, operations, and long-term growth initiatives. With a strong commitment to excellence, innovation, and integrity, she plays a key role in driving business development, strengthening client relationships, and ensuring the successful execution of organizational goals.
+
+Alongside her responsibilities as Managing Director, she also serves as the Marketing Manager, leading the company's marketing and branding initiatives. She is responsible for developing and implementing comprehensive marketing strategies, enhancing brand visibility, managing digital and traditional marketing campaigns, conducting market research, and identifying new business opportunities. Her expertise in brand positioning and customer engagement has contributed significantly to the company's expanding market presence and continued success.
+
+She believes in building a collaborative work environment where innovation, professionalism, and accountability are at the core of every decision. Her leadership style focuses on empowering teams, encouraging continuous learning, and fostering strong partnerships with clients, stakeholders, and industry professionals.
+
+Under her guidance, Salik Group & Co. continues to strengthen its reputation by delivering quality-driven solutions, maintaining high professional standards, and embracing modern business practices. Her vision is centered on sustainable growth, operational excellence, customer satisfaction, and creating long-term value for the organization and its partners.`,
+  },
+  {
     id: "head-support",
     name: "Mohammad Fayyaz",
     role: "Head of Technical Support",

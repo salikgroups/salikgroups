@@ -20,7 +20,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
     <main>
       <section className="relative overflow-hidden bg-sg-hero sg-section-x pb-12 pt-8 text-[#f3f6fc] sm:pb-16 sm:pt-10">
         <Image
-          src={service.image}
+          src={service.coverImage || service.image}
           alt=""
           fill
           priority
@@ -69,7 +69,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             <Reveal delay={120}>
               <div className="relative min-h-[280px] overflow-hidden rounded-sg-xl border border-white/10">
                 <Image
-                  src={service.image}
+                  src={service.coverImage || service.image}
                   alt={service.title}
                   fill
                   className="object-cover"

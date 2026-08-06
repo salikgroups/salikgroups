@@ -161,7 +161,7 @@ export function buildServiceMetadata(service: Service): Metadata {
       ...service.industries,
       ...service.capabilities.slice(0, 6),
     ],
-    ogImage: service.image,
+    ogImage: service.coverImage || service.image,
     type: "article",
   });
 }
@@ -184,7 +184,7 @@ export function buildProjectMetadata(project: Project): Metadata {
       project.client,
       ...project.highlights.slice(0, 6),
     ],
-    ogImage: project.image,
+    ogImage: project.coverImage || project.image,
     type: "article",
   });
 }
@@ -390,7 +390,7 @@ export function getServiceJsonLd(service: Service) {
     name: `${seoConfig.siteName} — ${service.title}`,
     description: service.metaDescription,
     url: absoluteUrl(`/services/${service.slug}`),
-    image: service.image,
+    image: service.coverImage || service.image,
     provider: {
       "@id": `${seoConfig.siteUrl}/#organization`,
     },
@@ -414,7 +414,7 @@ export function getProjectJsonLd(project: Project) {
     name: `${seoConfig.siteName} — ${project.title}`,
     description: project.metaDescription,
     url: absoluteUrl(`/projects/${project.slug}`),
-    image: project.image,
+    image: project.coverImage || project.image,
     datePublished: `${project.year}-01-01`,
     author: {
       "@id": `${seoConfig.siteUrl}/#organization`,

@@ -19,7 +19,7 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
     <main>
       <section className="relative overflow-hidden bg-sg-hero sg-section-x pb-12 pt-8 text-[#f3f6fc] sm:pb-16 sm:pt-10">
         <Image
-          src={project.image}
+          src={project.coverImage || project.image}
           alt=""
           fill
           priority
@@ -73,7 +73,7 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
             <Reveal delay={120}>
               <div className="relative min-h-[240px] overflow-hidden rounded-sg-xl border border-white/10 sm:min-h-[280px]">
                 <Image
-                  src={project.image}
+                  src={project.coverImage || project.image}
                   alt={project.title}
                   fill
                   className="object-cover"
